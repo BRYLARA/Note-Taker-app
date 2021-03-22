@@ -3,9 +3,9 @@
 // how many htmls are there
 
 
-
-const path = require("path");
 const router = require("express").Router();
+const path = require("path");
+
 
 //this route responds to notes.html
 router.get("/notes", (req, res) => {
