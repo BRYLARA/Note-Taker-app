@@ -1,5 +1,6 @@
 const express = require("express");
 // psuedo------set up require for routes here then write tjem in seperate folder
+// use html routes to respond and connect
 
 
 const htmlRoutes = require("./routes/htmlRoute");
