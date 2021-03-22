@@ -2,7 +2,7 @@ const express = require("express");
 // psuedo------set up require for routes here then write tjem in seperate folder
 
 
-const htmlRoutes = require("./routes/htmlRoutes");
+const htmlRoutes = require("./routes/htmlRoute");
 const apiRoutes = require("./routes/apiRoutes");
 
 // run the APP
