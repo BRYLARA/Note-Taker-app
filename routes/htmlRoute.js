@@ -1,8 +1,6 @@
 
 // routes needed to connect htmls
 // how many htmls are there
-
-
 const router = require("express").Router();
 const path = require("path");
 
