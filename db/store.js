@@ -17,6 +17,7 @@ class Store {
     return writeFileAsync("db/db.json", JSON.stringify(note));
   }
   read() {
+    console.log("I'm in read from store")
     return readFileAsync("db/db.json", "utf8");
   }
   addNote(note) {
@@ -37,13 +38,17 @@ class Store {
   }
   
   getNotes() {
+    console.log("I'm in get notes form store.js")
     return this.read().then((notes) => {
+      console.log("notes", notes)
       let parsedNotes;
       try {
         parsedNotes = [].concat(JSON.parse(notes));
       } catch (err) {
+        console.log("error in get notes from db folder")
         parsedNotes = [];
       }
+
 
       return parsedNotes;
     });

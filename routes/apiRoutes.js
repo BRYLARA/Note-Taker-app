@@ -3,10 +3,12 @@ const store = require("../db/store");
 
 //this GET request gets the notes in our db
 router.get("/notes", (req, res) => {
+  console.log("pinged")
   store
     .getNotes()
     .then((notes) => {
-      return res.json(notes);s
+      console.log("notes from api route", notes)
+      return res.json(notes);
     })
 
     .catch((err) => res.status(500).json(err));

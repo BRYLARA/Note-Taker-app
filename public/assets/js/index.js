@@ -25,13 +25,16 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-const getNotes = () =>
-  fetch('/api/notes', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+const getNotes =  () =>
+{    return  fetch('/api/notes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+}
+  
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -80,8 +83,6 @@ const renderActiveNote = () => {
     noteText.removeAttribute('readonly', true);
   }
 };
-
-
 
 
 const handleNoteSave = () => {
@@ -136,7 +137,9 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log("Notes from render Note List", notes )
   let jsonNotes = await notes.json();
+  console.log("jsonNotes: ", jsonNotes)
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
@@ -188,7 +191,13 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
+const getAndRenderNotes = () => {
+  console.log("In get & render notes index.js")
+  getNotes().then(notes=>{
+    console.log("Notes form get&render notes index.js: ", notes)
+    renderNoteList(notes)
+  })
+};
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
